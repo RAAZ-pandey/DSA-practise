@@ -77,9 +77,31 @@ void insertbefore()
       temp=temp->next;
     }
      prev->next=newnode;
-   newnode->next  =temp ;
+     newnode->next  =temp ;
   }
   
+}
+
+void reverse()
+{
+  struct node  *prev , *cur;
+  if(start!=NULL) 
+  {
+    prev = start;
+    cur = start->next;
+    start=start->next;
+    prev->next = NULL; // makes the first node last node
+
+     while(start !=NULL)
+     {
+        start = start->next;
+        cur->next =prev;
+        prev=cur;
+        cur=start;
+     }
+     start = prev; //makes the last node as head
+     printf("kar diya reverse display kr k dekh lo");
+  }
 }
 
 
@@ -155,6 +177,9 @@ void main()
                 display();
                 break;
             case 5:
+                  reverse();
+                  break;
+            case 6:
                 exit(0);
                 break;
             default:
@@ -162,5 +187,5 @@ void main()
         }
     }
     
-    return 0;
+    return ;
 }
