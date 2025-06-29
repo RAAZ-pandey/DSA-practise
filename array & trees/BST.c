@@ -23,7 +23,7 @@ struct Node* insert(struct Node* root, int data) {
         return createNode(data);
     }
     
-    // Otherwise, recur down 
+    
     if (data < root->data) {
         root->left = insert(root->left, data);
     } else if (data > root->data) {
