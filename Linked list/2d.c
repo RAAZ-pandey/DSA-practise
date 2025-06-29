@@ -107,7 +107,7 @@ void main()
 {
     
     int a;
-    char c[1];  // this will  behave like a string not an array
+    char c[1];  // here this will  behave like a string not an array
 
     do{
             printf(" press 1 for insert at begining , press 2 to insert at end & press 3 for display  , press 4 to delete\n");
