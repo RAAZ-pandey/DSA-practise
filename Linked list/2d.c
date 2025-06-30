@@ -92,6 +92,39 @@ void delete()
      free(temp);
   }
 }
+
+void deleteUsingSinglePointer()
+{
+    struct node *temp ;
+    int c;
+    printf("\n Enter data you want to delete \t");
+    scanf("%d",&c);
+  if(start->data==c)
+  {
+   temp = start;
+   start =start->next;
+   temp->next=NULL;
+
+   printf("Deleted = %d", temp->data);
+   free(temp);
+   
+  }
+  else
+  {
+     temp=start;
+     while(temp!=NULL )
+     {
+        if( temp->next != NULL || temp->next->data == c )
+        {
+            struct node *del = temp->next ;
+            temp->next = temp->next->next ;
+            free(del);
+        }
+         temp = temp->next ;
+     }
+  }
+}
+
 void display()
 {
     struct node *temp;
@@ -127,6 +160,9 @@ void main()
                  case 4:
                     delete();
                     break;
+                   case 5:
+                      deleteUsingSinglePointer();
+                       break;
                     
                  default :
                     printf("invalid input \n");
